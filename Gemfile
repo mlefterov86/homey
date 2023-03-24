@@ -49,9 +49,11 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'rubocop'
+gem 'rubocop-rails'
 gem 'devise'
 gem 'aasm'
 gem 'data_migrate'
+gem 'paper_trail'
 
 # Bootstrap
 # gem 'bootstrap', '~> 5.1.3'
