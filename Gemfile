@@ -49,14 +49,23 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'rubocop'
+gem 'devise'
+gem 'aasm'
+gem 'data_migrate'
+
+# Bootstrap
+# gem 'bootstrap', '~> 5.1.3'
+# gem 'bootstrap-sass'
+# gem 'jquery-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'byebug', '~> 11.1', '>= 11.1.3', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'pgreset', '~> 0.1.1'
+  # gem 'pgreset', '~> 0.1.1'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'faker'
 end
 
 group :development do
@@ -79,3 +88,7 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'shoulda-matchers', '~> 5.0'
 end
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.1"
