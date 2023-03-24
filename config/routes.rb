@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :projects, only: %w[index show update]
+  resources :projects, only: %w[index show update] do
+    member { get "versions", to: "projects#versions" }
+  end
+  resources :comments, only: %w[show create]
 end

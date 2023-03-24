@@ -1,0 +1,40 @@
+<div class='container-fluid'>
+  <div class='row justify-content-md-center'>
+    <div class='row justify-content-md-center'>
+      <div class='col-md-auto'>
+        <h2><%= @project.name %> (<%= "Current state: #{@project.status}" %>)</h2>
+      </div>
+    </div>
+    <div class='row justify-content-md-center'>
+      <div class='col-md-auto'>
+        <h5><%= link_to 'Back to project', project_path(@project) %></h5>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <table class='table table-striped'>
+    <thead class='thead-dark'>
+    <tr>
+      <th scope='col'>Project State was</th>
+      <th scope='col'>Transitioned from</th>
+      <th scope='col'>Who done it</th>
+      <th scope='col'>Creaeted At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @project.versions.each do |version| %>
+      <tr>
+        <td><%= Project.states.invert[YAML.load(version.object).to_h['state']] %></td>
+        <% previous_version_object = version.previous&.object %>
+        <td><%= Project.states.invert[YAML.load(previous_version_object).to_h['state']] if previous_version_object  %></td>
+        <td><%= User.find(version.whodunnit).firstname %></td>
+        <td><%= version.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<%#= link_to 'Back', articles_path %>

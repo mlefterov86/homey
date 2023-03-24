@@ -1,6 +1,22 @@
-<div class="row justify-content-md-center">
-  <div class="col-sm-6 mx-auto">
-    <h6>Activity:</h6>
+<div class='row justify-content-md-center'>
+  <div class='row justify-content-md-center'>
+    <div class='col-sm-6 mx-auto'>
+      <div class='form-floating'>
+        <%= form_for project.comments.new do |f| %>
+          <%= f.text_area :text, class: 'form-control' %><br />
+          <%= f.hidden_field :project_id, value: @project.id %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class='row justify-content-md-center'>
+  <div class='col-sm-6 mx-auto'>
+    <h5>Activity:</h5>
 
     <% project.comments.each do |comment| %>
       <%= comment.text %>

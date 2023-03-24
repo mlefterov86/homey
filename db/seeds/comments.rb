@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Project.all.each do |project|
-  5.times do |n|
-    Comment.create!(
-      text: Faker::Markdown.sandwich,
-      project: project,
-      user: User.all[rand(User.count)]
-    )
+  5.times do
+    comment = Comment.new
+    comment.text = Faker::Markdown.sandwich
+    comment.project = project
+    comment.user = User.all[rand(User.count)]
+    comment.save!
   end
 end

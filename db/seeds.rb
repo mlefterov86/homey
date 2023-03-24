@@ -1,3 +1,3 @@
-load File.join(Rails.root, 'db', 'seeds', 'users.rb')
-load File.join(Rails.root, 'db', 'seeds', 'projects.rb')
-load File.join(Rails.root, 'db', 'seeds', 'comments.rb')
+load Rails.root.join('db/seeds/users.rb')
+load Rails.root.join('db/seeds/projects.rb')
+load Rails.root.join('db/seeds/comments.rb')

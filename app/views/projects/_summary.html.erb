@@ -1,18 +1,18 @@
-<div class="row justify-content-md-center">
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto">
+<div class='row justify-content-md-center'>
+  <div class='row justify-content-md-center'>
+    <div class='col-md-auto'>
       <h2><%= @project.name %> (<%= @project.status %>)</h2>
     </div>
   </div>
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto">
-      <h6><%= link_to 'Project history' %></h6>
+  <div class='row justify-content-md-center'>
+    <div class='col-md-auto'>
+      <h5><%= link_to 'Project history', versions_project_path(@project) %></h5>
     </div>
   </div>
 </div>
-<div class="row justify-content-md-center">
-  <div class="col-sm-8 mx-auto">
-    <h6>Description:</h6>
+<div class='row justify-content-md-center'>
+  <div class='col-sm-8 mx-auto'>
+    <h5>Description:</h5>
     <div><%= @project.summary %></div>
   </div>
 </div>

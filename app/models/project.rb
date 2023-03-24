@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class Project < ApplicationRecord
   include AASM
 
+  has_paper_trail only: [:state]
   has_many :comments, dependent: :destroy
 
   enum state: {
@@ -8,7 +11,7 @@ class Project < ApplicationRecord
     in_progress: 10,
     in_review: 20,
     tested: 30,
-    done: 40,
+    done: 40
   }
 
   validates :name, :summary, presence: true
@@ -45,13 +48,31 @@ class Project < ApplicationRecord
     end
   end
 
+  def tested!
+    return unless current_user.role.qa? || current_user.role.pm?
+
+    super
+  end
+
+  def done!
+    return unless current_user.role.pm?
+
+    super
+  end
+
   def status
     {
       'to_do' => 'To Do',
       'in_progress' => 'In Progress',
       'in_review' => 'In Review',
       'tested' => 'Tested',
-      'done' => 'Done',
+      'done' => 'Done'
     }[state]
+  end
+
+  private
+
+  def current_user
+    User.current_user
   end
 end
