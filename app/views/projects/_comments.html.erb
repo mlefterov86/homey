@@ -1,0 +1,11 @@
+<div class="row justify-content-md-center">
+  <div class="col-sm-6 mx-auto">
+    <h6>Activity:</h6>
+
+    <% project.comments.each do |comment| %>
+      <%= comment.text %>
+      <p>====================</p>
+      <br />
+    <% end %>
+  </div>
+</div>

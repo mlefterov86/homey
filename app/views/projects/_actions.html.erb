@@ -1,0 +1,5 @@
+<% project.aasm.states(permitted: true).map(&:name).each do |state| %>
+  <%= button_to "Put #{state.to_s.humanize}", project_path(project), method: :patch, params: { state: state  }, class: 'btn btn-primary' %>
+<% end %>
+
+

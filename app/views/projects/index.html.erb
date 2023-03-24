@@ -1,0 +1,22 @@
+<div class='container col-md-12'>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Project Name</th>
+      <th scope="col">Project State</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @projects.each_with_index do |project, idx| %>
+        <tr>
+          <th scope="row"><%= idx + 1 %></th>
+          <td><%= link_to project.name, project %></td>
+          <td><%= project.status %></td>
+          <td><%= render 'actions', project: project %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
